@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receipt | Golf Charity Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-white text-slate-900 min-h-screen">
+  <header class="border-b border-slate-200 bg-white sticky top-0 z-20">
+    <nav class="navbar navbar-expand-lg navbar-light px-0">
+      <div class="max-w-3xl mx-auto px-4 py-3">
+        <a class="navbar-brand text-xl md:text-2xl font-bold" href="#">Receipt</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarReceipt" aria-controls="navbarReceipt" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarReceipt">
+          <div class="ms-auto d-flex gap-2 flex-wrap">
+            <a href="dashboard.html" class="btn-secondary nav-link px-3">Back to Dashboard</a>
+            <button id="logoutBtn" class="btn-danger nav-link px-3">Logout</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-6 space-y-6">
+    <section class="dashboard-card">
+      <h2 class="text-lg font-semibold mb-2">Payment Receipt</h2>
+      <p class="text-slate-400 text-sm mb-4">This is a simulated payment</p>
+
+      <div class="grid md:grid-cols-2 gap-3">
+        <div><p class="text-slate-500 mb-1">Name</p><p id="receiptUserName" class="text-slate-900 font-semibold">-</p></div>
+        <div><p class="text-slate-500 mb-1">Email</p><p id="receiptUserEmail" class="text-slate-900 font-semibold">-</p></div>
+
+        <div><p class="text-slate-500 mb-1">Plan</p><p id="receiptPlan" class="text-slate-900 font-semibold">-</p></div>
+        <div><p class="text-slate-500 mb-1">Amount</p><p id="receiptAmount" class="text-slate-900 font-semibold">-</p></div>
+
+        <div><p class="text-slate-500 mb-1">Payment Method</p><p id="receiptPaymentMethod" class="text-slate-900 font-semibold">-</p></div>
+        <div><p class="text-slate-500 mb-1">Transaction ID</p><p id="receiptTransactionId" class="text-slate-900 font-semibold break-all">-</p></div>
+
+        <div><p class="text-slate-500 mb-1">Date & Time</p><p id="receiptCreatedAt" class="text-slate-900 font-semibold">-</p></div>
+        <div><p class="text-slate-500 mb-1">Status</p><p id="receiptStatus" class="text-slate-900 font-semibold">-</p></div>
+      </div>
+
+      <div class="mt-5 flex gap-2 flex-wrap">
+        <button id="printReceiptBtn" class="btn-primary">Print Receipt</button>
+        <button id="downloadReceiptBtn" class="btn-secondary">Download Receipt</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toastContainer" class="fixed top-5 right-5 z-50 space-y-3"></div>
+  <div id="spinnerOverlay" class="spinner-overlay hidden">
+    <div class="loader"></div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+

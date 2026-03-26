@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard | Golf Charity Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-white text-slate-900 min-h-screen">
+  <header class="border-b border-slate-200 bg-white sticky top-0 z-20">
+    <nav class="navbar navbar-expand-lg navbar-light px-0">
+      <div class="max-w-7xl mx-auto px-4 py-3">
+        <a class="navbar-brand text-xl md:text-2xl font-bold" href="#">      <b>Golf Charity platfrom </b>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDashboard" aria-controls="navbarDashboard" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarDashboard">
+          <div class="ms-auto d-flex gap-2 flex-wrap">
+            <a href="charities.html" class="btn-secondary nav-link px-3">Choose Charity</a>
+            <button id="logoutBtn" class="btn-danger nav-link px-3">Logout</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-6 space-y-6">
+    <section class="glass-card p-6">
+      <h1 class="text-3xl font-bold gradient-text">Welcome to Golf Charity Dashboard</h1>
+      <p class="text-slate-200 mt-2">Track your progress in the draw, subscription status, and charity impact at a glance.</p>
+    </section>
+    <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div class="dashboard-card card-entrance glow-pulse">
+        <p class="text-slate-400">User</p>
+        <p id="userName" class="text-xl font-semibold mt-2">-</p>
+        <p id="userEmail" class="text-slate-300 text-sm mt-1"></p>
+      </div>
+      <div class="dashboard-card card-entrance glow-pulse">
+        <p class="text-slate-400">Subscription</p>
+        <p id="subscriptionStatus" class="text-xl font-semibold mt-2">-</p>
+        <p id="subscriptionPlan" class="text-slate-300 text-sm mt-1"></p>
+      </div>
+      <div class="dashboard-card card-entrance glow-pulse">
+        <p class="text-slate-400">Selected Charity</p>
+        <p id="selectedCharity" class="text-xl font-semibold mt-2">-</p>
+      </div>
+      <div class="dashboard-card card-entrance glow-pulse">
+        <p class="text-slate-400">Last Draw Result</p>
+        <p id="drawResult" class="text-xl font-semibold mt-2">No win yet</p>        <p id="drawNumbersDashboard" class="text-slate-300 text-sm mt-1">No draw yet</p>      </div>
+      <div class="dashboard-card card-entrance glow-pulse">
+        <p class="text-slate-400">Get Subscription</p>
+        <button id="subscribeBtn" class="btn-primary w-full mt-3">Subscribe</button>
+      </div>
+    </section>
+
+    <section class="grid xl:grid-cols-2 gap-6">
+      <div class="dashboard-card card-entrance">
+        <h2 class="text-lg font-semibold mb-3">Add Golf Score (1-45)</h2>
+        <div class="shimmer-bar mb-3"></div>
+        <form id="scoreForm" class="flex gap-2">
+          <input id="score" class="input-field" type="number" min="1" max="45" required>
+          <button class="btn-primary" type="submit">Add</button>
+        </form>
+        <ul id="scoreList" class="mt-4 space-y-2"></ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="toastContainer" class="fixed top-5 right-5 z-50 space-y-3"></div>
+  <div id="spinnerOverlay" class="spinner-overlay hidden">
+    <div class="loader"></div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

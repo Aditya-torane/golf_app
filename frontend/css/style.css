@@ -1,0 +1,260 @@
+* {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.input-field {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: #205A28;
+  transform: translateY(-1px);
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  border: 0;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #205A28;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #17461a;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(32, 90, 40, 0.2);
+}
+
+.btn-secondary {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.btn-danger {
+  background: #C72B32;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #A92026;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(199, 43, 50, 0.18);
+}
+
+.dashboard-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dashboard-card:hover,
+.card-animate:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
+}
+
+.spinner-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.3);
+  display: grid;
+  place-items: center;
+  z-index: 999;
+}
+
+.loader {
+  width: 46px;
+  height: 46px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #205A28;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.toast {
+  padding: 0.7rem 1rem;
+  border-radius: 0.7rem;
+  color: #fff;
+  animation: slideIn 0.25s ease;
+}
+
+.toast.success {
+  background: #205A28;
+}
+
+.toast.error {
+  background: #C72B32;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(15px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Page + card animations (lightweight) */
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+  overflow-x: hidden;
+  color: #0f172a !important;
+  background: radial-gradient(circle at 20% 20%, #c5f7e6 0%, #b5e8ff 38%, #2c3e50 100%) fixed;
+  animation: fadeInPage 0.35s ease both;
+  min-height: 100vh;
+}
+
+.glass-card,
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 20px 45px rgba(9, 30, 66, 0.25);
+  border-radius: 1rem;
+  animation: fadeInPage 0.35s ease both;
+}
+
+.gradient-text {
+  background: linear-gradient(112deg, #06b6d4, #38bdf8, #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.device-frame {
+  padding: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.card-animate:hover,
+.glass-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 25px 45px rgba(9, 30, 66, 0.35);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .dashboard-card {
+    padding: 0.9rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-danger {
+    width: 100%;
+  }
+
+  .flex.gap-2 {
+    flex-direction: column;
+  }
+}
+
+.card-entrance {
+  animation: floatIn 0.8s ease-out both;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.glow-pulse {
+  animation: glow 2.2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 22px 8px rgba(56, 189, 248, 0.12);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+.shimmer-bar {
+  min-height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,.08) 25%, rgba(255,255,255,.25) 50%, rgba(255,255,255,.08) 75%);
+  background-size: 150% 100%;
+  animation: shimmer 1.7s infinite;
+}
+
+/* 🔥 BLUR BACKGROUND */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: url("../images/bg.jpg") no-repeat center center/cover;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+/* Dark overlay for readability */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
